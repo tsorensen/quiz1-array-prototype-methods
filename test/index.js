@@ -12,7 +12,7 @@ var highest = require('../problems/08-highest');
 
 var expect = chai.expect;
 
-function createTestFunc(funcName, func) {
+function createTestFunc(func) {
   return function() {
     var args = Array.prototype.slice.call(arguments);
     var expected = args.pop();
@@ -23,7 +23,7 @@ function createTestFunc(funcName, func) {
     }).join(', ');
     var strExpected = JSON.stringify(expected);
 
-    it(funcName + '(' + strArgs + ') => ' + strExpected, function() {
+    it(func.name + '(' + strArgs + ') => ' + strExpected, function() {
       var orig = arr.slice(0);
       var modified = func.apply(null, args);
 
@@ -35,7 +35,7 @@ function createTestFunc(funcName, func) {
 
 describe('01 double array', function() {
 
-  var testArray = createTestFunc('doubleArray', doubleArray);
+  var testArray = createTestFunc(doubleArray);
 
   testArray([ 1, 2, 3 ], [ 2, 4, 6 ]);
   testArray([ 0 ], [ 0 ]);
@@ -47,7 +47,7 @@ describe('01 double array', function() {
 
 describe('02 concat each', function() {
 
-  var testArray = createTestFunc('concatEach', concatEach);
+  var testArray = createTestFunc(concatEach);
 
   testArray([ 'foo', 'bar' ], 'asdf', [ 'asdffoo', 'asdfbar' ]);
   testArray([ 'world', 'there' ], 'hello ', [ 'hello world', 'hello there' ]);
@@ -59,7 +59,7 @@ describe('02 concat each', function() {
 
 describe('03 even', function() {
 
-  var testArray = createTestFunc('even', even);
+  var testArray = createTestFunc(even);
 
   testArray([ 1, 2, 3 ], [ 2 ]);
   testArray([ 2, 8, 10, -2 ], [ 2, 8, 10, -2 ]);
@@ -71,7 +71,7 @@ describe('03 even', function() {
 
 describe('04 only strings', function() {
 
-  var testArray = createTestFunc('onlyStrings', onlyStrings);
+  var testArray = createTestFunc(onlyStrings);
 
   testArray([ 1, '2', '3', 4 ], [ '2', '3' ]);
   testArray([ 'hello world', { foo: 'bar' }, 'foobar' ], [ 'hello world', 'foobar' ]);
@@ -83,7 +83,7 @@ describe('04 only strings', function() {
 
 describe('05 has string', function() {
 
-  var testArray = createTestFunc('hasString', hasString);
+  var testArray = createTestFunc(hasString);
 
   testArray([ 1, 2, 3, 4, 5 ], false);
   testArray([], false);
@@ -95,7 +95,7 @@ describe('05 has string', function() {
 
 describe('06 has greater than', function() {
 
-  var testArray = createTestFunc('hasGreaterThan', hasGreaterThan);
+  var testArray = createTestFunc(hasGreaterThan);
 
   testArray([ 2, 4, 5, 6 ], 1, true);
   testArray([ 10, 12, 15 ], 15, false);
@@ -107,7 +107,7 @@ describe('06 has greater than', function() {
 
 describe('07 sum', function() {
 
-  var testArray = createTestFunc('sum', sum);
+  var testArray = createTestFunc(sum);
 
   testArray([ 1, 2, 3, 4 ], 10);
   testArray([ 10, '9', 8, 7, 6 ], 31);
@@ -119,7 +119,7 @@ describe('07 sum', function() {
 
 describe('08 highest', function() {
 
-  var testArray = createTestFunc('highest', highest);
+  var testArray = createTestFunc(highest);
 
   testArray([ 1, 2, 3, '4' ], 3);
   testArray([ 10, 9, 8, 7, 6 ], 10);

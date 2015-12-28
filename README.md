@@ -1,5 +1,74 @@
 # Quiz 1 - Array Prototype Methods
 
+Below are a series of problems to work through that should help reinforce the
+Array prototype methods. If you don't already know what they are or how they
+work, read the following links:
+
+* [`.map()`][map]
+* [`.forEach()`][forEach]
+* [`.some()`][some]
+* [`.filter()`][filter]
+* [`.reduce()`][reduce]
+
+There are many more array methods, but those are the most common ones that
+you'll see and should utilize.
+
+# Instructions
+
+1. Fork this repo to your own user account
+
+1. Clone your fork of the repo
+
+1. Navigate to the repo's directory in the terminal
+
+1. Install the dependencies:
+
+  ```bash
+  npm install
+  ```
+
+1. Solve the problems described below. Enter your code into the function
+  definitions in the files in the `problems/` directory. Most of the problems
+  can be solved in 1 line of code, but others will most definitely take more.
+
+1. Run the tests with the following command:
+
+  ```bash
+  npm test
+  ```
+
+  You may see errors show up. That is alright! You can run them as many times as
+  you want. If you're having trouble here are some helpful tips:
+
+  * Use `console.log()` frequently if you're unsure of the value of a variable.
+    Use prefixes to help you distinguish different logging statements like this:
+    `console.log('testing', myObj);`
+
+  * To check the type of a variable, use `typeof myObj`. Possible values you can
+    get are `'string'`, `'number'`, `'object'`, and `'undefined'`.
+
+    ```js
+    typeof 'myString' === 'string';
+    typeof 5 === 'number';
+    typeof undefined === 'undefined';
+    typeof null === 'object';
+    typeof [] === 'object';
+    typeof (/regex/) === 'object';
+    typeof {} === 'object';
+    ```
+
+
+1. Once you're done, commit your code, push it, and submit a pull request to the
+  original repo. It will run the automated tests and tell me whether or not they
+  pass. If they fail, you can still make new commits. If you push them up, your
+  changes will automatically be shown in the pull request, and the automated
+  tests will rerun. If the tests pass on your machine, but fail in the pull
+  request, contact me and we'll get it resolved.
+
+1. After you have a passing pull request, submit the link to the pull request
+  to canvas. If you're having trouble getting all of the tests to pass, you can
+  still submit for partial points. The quiz is out of 30 and you have 32 tests
+  to pass, which allows you 2 failing tests to still get 100% on the quiz.
 
 Problem 1 - [`problems/01-double-array.js`](problems/01-double-array.js)
 ========================================================================
@@ -87,13 +156,13 @@ Problem 7 - [`problems/07-sum.js`](problems/07-sum.js)
 ======================================================
 
 Write a function that accepts an array of mixed values, and returns a total of
-all of the numbers, and ignores any non-number value. You can utilize the
+all of the numbers, and ignores any non-number value. {You can utilize the
 [`.reduce` method][reduce] or [`.forEach` method] for a simple solution.
 
 ```js
 sum([ 1, 2, 3, 4 ]); // 10
-sum([ 'foo', 'bar', '0', '1' ]); // 0
-sum([]); // 0
+sum([ 'foo', 'bar', '0', '1' ]); // null
+sum([]); // null
 sum([ '1', '2', 3, '4' ]); // 3
 ```
 
